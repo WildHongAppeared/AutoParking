@@ -69,16 +69,16 @@ export default class Parking{
     }
   }
 
-  public vehicleExit(input: ParkingInput):void{
+  public vehicleExit(input: ParkingInput):void{ //function to handle vehicle exit parking
     this.carParkingLots.forEach((lot, index) => {
-      if(lot?.vehiclePlate === input.vehiclePlate ){ //init parking lot to null if vehicle is found (exit parking action)
+      if(lot?.vehiclePlate === input.vehiclePlate ){ //reset parking lot to initial state if vehicle is found (exit parking action)
         console.log(`Car Lot ${index + 1} ${this.calculateFare(VEHICLE_TYPES.car, lot.timestamp, input.timestamp)}`) //index + 1 because display should not start from zero
         this.carParkingLots[index] = EMPTY_PARKING
         return
       }
     })
     this.motorParkingLots.forEach((lot, index) => {
-      if(lot?.vehiclePlate === input.vehiclePlate){ //init parking lot to null if vehicle is found (exit parking action)
+      if(lot?.vehiclePlate === input.vehiclePlate){ //reset parking lot to initial state if vehicle is found (exit parking action)
         console.log(`Motorcycle Lot ${index + 1} ${this.calculateFare(VEHICLE_TYPES.motorcycle, lot.timestamp, input.timestamp)}`) //index + 1 because display should not start from zero
         this.motorParkingLots[index] = EMPTY_PARKING
       }
