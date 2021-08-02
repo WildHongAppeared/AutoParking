@@ -32,11 +32,13 @@ export default class Parking{
         return parkingFareHour * CAR_PARKING_RATE_PER_HOUR
       case VEHICLE_TYPES.motorcycle:
         return parkingFareHour * MOTOR_PARKING_RATE_PER_HOUR
+      default:
+        throw new Error('calculateFare - Vehicle type not found')
     }
   }
   
 
-  public vehicleEnter(input: ParkingInput):void{ //function to handle vehicle exit parking 
+  public vehicleEnter(input: ParkingInput):void{ //function to handle vehicle enter parking 
     switch(input.vehicleType){
       case VEHICLE_TYPES.car: 
         let hasCarParkingLot = this.carParkingLots.find((lot) => lot.isUsed === false)
