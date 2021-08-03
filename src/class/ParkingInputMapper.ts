@@ -18,17 +18,17 @@ export default class ParkingInputMapper {
   }
 
   private parkingInputMap(row: string):ParkingInput{ //map input rows to ParkingInput type accepted by Parking class
-    const formattedRow = row.split(',')
-    let action = formattedRow[0].trim().toUpperCase()
+    const formattedRow = row.split(',') //split based on , as csv format
+    let action = formattedRow[0].trim().toUpperCase() //row 0 is always action
     switch(action){
-      case ACTION_TYPES.enter:
+      case ACTION_TYPES.enter: // map to enter action type
         return {
           action: action,
-          vehicleType: formattedRow[1].trim().toUpperCase(),
+          vehicleType: formattedRow[1].trim().toUpperCase(), 
           vehiclePlate: formattedRow[2].trim().toUpperCase(),
           timestamp: Number(formattedRow[3].trim())
         }
-      case ACTION_TYPES.exit:
+      case ACTION_TYPES.exit: // map to exit action type
         return {
           action: formattedRow[0].trim().toUpperCase(),
           vehiclePlate: formattedRow[1].trim().toUpperCase(),
@@ -42,7 +42,6 @@ export default class ParkingInputMapper {
           timestamp: Number(formattedRow[3].trim())
         }
     }
-
   }
 
   public getCarLotCount(){
