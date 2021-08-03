@@ -20,8 +20,9 @@ Exit,SDW2111W,1613559745
 ```
 - The program will only use input.csv under the root directory as input. A sample working file has been provided in the root directory
 - The program will read from the file and log the output as text in the console that it is run on. There is no user interaction required in the program
-- The program only supports Exit and Enter on the first column as input
-- The program only supports car and motorcycle on the second column as input
+- The program only supports `Exit` and `Enter` on the first column as input
+- The program only supports `car` and `motorcycle` on the second column as input
+- The program only accepts alphanumeric string on the third column as input
 - The program only supports timestamps as an acceptable date format in the fourth column as input
 ---
 ## Design Decisions
